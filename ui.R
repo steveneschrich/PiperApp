@@ -35,7 +35,34 @@ red is higher.
       )
     )
   )),
-  fluidRow(shiny::plotOutput("subwayMap"))
+  fluidRow(shiny::plotOutput("subwayMap")),
+  fluidRow(column(
+    width = 12,
+    wellPanel(
+    HTML(
+"
+<h1><b>Node Descriptions </b></H1>
+
+<ul>
+<li><b>Biopsy:</b> This value is a readout of the number of protein biomarkers detectable in the tumor sample.
+<li><b>QC:</b> A cellularity metric is calculated based on comparison to the maximum value for summed beta actin and lamin A/C expression level.
+<li><b>Histology:</b> This node indicates either histology of either Adenocarcinoma (higher K2C7 expression) or Squamous (higher K2C5 expression).  All tumors in this test group were lung squamous cell carcinoma, so higher K2C5 is expected.
+<li><b>EMT:</b> The tumor is further described as either Epithelial (E-Cadherin expression) or Mesenchymal (N-Cadherin expression).  All tumors in this test group were epithelial.
+<li><b>Proliferation:</b>  Comparison of each tumor’s data to the maximum for the sum of the proliferation biomarkers.
+<li><b>Metabolism:</b> In this panel, the example is the GAPDH Level as a metric for tumor glycolytic capacity.
+<li><b>RTK:</b>  This node displays the receptor tyrosine kinase (RTK) that has the highest expression level in that sample.
+<li><b>KRAS G12C:</b> This entry conveys detection or lack of detection of the KRAS G12C peptide; this metric could be further adapted to compare WT to mutant KRAS.
+<li><b>MAPK:</b> Comparison of each tumor’s data to the maximum value for the sum of contributing signaling proteins in the mitogen-activated protein kinase pathway.
+<li><b>CDK:</b> Comparison of each tumor’s data to the maximum value for the sum of contributing signaling proteins in the cyclin-dependent kinase (CDK) pathway.
+<li><b>PI3K/AKT/MTOR:</b> Comparison of each tumor’s data to the maximum value for the sum of contributing signaling proteins in the phosphatidylinositol-3kinase/protein kinase B/mammalian target of rapamycin pathway.
+<li><b>Immune Hot/Cold:</b>  Immune Cell Markers are summed to determine the level of infiltrating lymphocytes.
+<li><b>Checkpoint Blockade:</b> The immune checkpoint protein with the highest expression is selected as a potential target.  Detection of most of these proteins was sparse in this dataset, due to the limited amount of total protein digest analyzed with LC-MRM.
+<li><b>Antibody-Drug Conjugate Targets:</b>  The antibody-drug conjugate (ADC) target with the highest expression is displayed to enable selection of the ADC treatment that could result in the highest payload delivery.
+<li><b>Cancer Antigens:</b>  The cancer antigen with the highest expression is displayed to align with potential cellular therapies.
+</ul>
+"
+  ))
+  ))
 )
 
 
